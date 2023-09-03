@@ -6,24 +6,22 @@ const getLunchImgPath = (key) => {
     almost: './assets/almost.png',
     ready: './assets/ready.png',
     keep_eating: './assets/keep_eating.png',
-    finishied: './assets/finished.png',
+    finished: './assets/finished.png',
     not_yet: './assets/almost.png'
   }
 
-  return options[key] || options['not_yet']
+  return options[key]
 }
 
 const jahPodeAlmossar = () => {
-  const date = new Date().getHours()
-  
-  const currentHour = date
+  const currentHour = new Date().getHours()
 
   const currentPeriod = (hour) => ({
-    early: hour >= 10 && hour <= 11,
-    almost: hour <= 11 && hour <= 12,
-    ready: hour >= 12 && hour <= 13,
-    keep_eating: hour >= 13 && hour <= 14,
-    finished: hour >= 14 && hour <= 18,
+    early: hour === 10,
+    almost: hour === 11,
+    ready: hour === 12,
+    keep_eating: hour === 13,
+    finished: hour === 14 && hour <= 18,
     not_yet: hour >= 18 && hour <= 10
   })
 
@@ -31,6 +29,7 @@ const jahPodeAlmossar = () => {
   if (currentPeriod(currentHour).early) {
     imgPath = getLunchImgPath('early')
   } else if(currentPeriod(currentHour).almost) {
+    console.log('cai aqui por')
     imgPath = getLunchImgPath('almost')
   } else if(currentPeriod(currentHour).ready) {
     imgPath = getLunchImgPath('ready')
