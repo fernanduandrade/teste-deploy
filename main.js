@@ -21,8 +21,9 @@ const getLunchImgPath = (key) => {
 }
 
 const jahPodeAlmossar = () => {
+  const lunchElement = document.getElementById('mainContent')
   const currentHour = new Date().getHours()
-
+  const button = document.getElementById("lunchButton")
   const currentPeriod = (hour) => ({
     early: hour === 10,
     almost: hour === 11,
@@ -32,23 +33,37 @@ const jahPodeAlmossar = () => {
     not_yet: hour >= 18 && hour <= 10
   })
 
-  let imgPath;
-  if (currentPeriod(currentHour).early) {
-    imgPath = getLunchImgPath('early')
-  } else if(currentPeriod(currentHour).almost) {
-    imgPath = getLunchImgPath('almost')
-  } else if(currentPeriod(currentHour).ready) {
-    imgPath = getLunchImgPath('ready')
-  } else if(currentPeriod(currentHour).keep_eating) {
-    imgPath = getLunchImgPath('keep_eating')
-  } else if(currentPeriod(currentHour).finished) {
-    imgPath = getLunchImgPath('finished')
-  } else {
-    imgPath = getLunchImgPath('not_yet')
-  }
+  button.remove()
+  const spamElement = document.createElement('spam')
+  spamElement.classList.add('fade-in', 'spam-load')
+  spamElement.textContent = 'Verificando o Al mosso'
+  const divLoadDots = document.getElementById('load')
+  divLoadDots.style.display = 'block'
+  divLoadDots.insertBefore(spamElement, divLoadDots.firstChild)
+  // setTimeout(() => {
+  //   h2Tag.remove()
+  //   let teste = document.createElement('div')
+  //   teste.classList.add('img_test')
+  //   lunchButton.append(teste)
+  // }, 2000)
+  
+  // let imgPath;
+  // if (currentPeriod(currentHour).early) {
+  //   imgPath = getLunchImgPath('early')
+  // } else if(currentPeriod(currentHour).almost) {
+  //   imgPath = getLunchImgPath('almost')
+  // } else if(currentPeriod(currentHour).ready) {
+  //   imgPath = getLunchImgPath('ready')
+  // } else if(currentPeriod(currentHour).keep_eating) {
+  //   imgPath = getLunchImgPath('keep_eating')
+  // } else if(currentPeriod(currentHour).finished) {
+  //   imgPath = getLunchImgPath('finished')
+  // } else {
+  //   imgPath = getLunchImgPath('not_yet')
+  // }
 
-  const lunchButton = document.getElementById("lunchImg")
-  lunchButton.src = imgPath
+  // const lunchButton = document.getElementById("lunchImg")
+  // lunchButton.src = imgPath
 }
 
 lunchButton.addEventListener('click', jahPodeAlmossar);
