@@ -90,7 +90,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .img_result {
-  gap: 40px;
+  gap: 20px;
   border-radius: 8px;
   width: 400px;
   height: 500px;
@@ -126,6 +126,19 @@ p, h1, h2, h3, h4, h5, h6 {
 @media only screen and (max-width: 600px) {
   .lunch {
     width: 350px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .spam-load {
+    font-size: 25px;
+  }
+  .spam-result {
+    font-size: 20px;
+  }
+  .img_result {
+    width: 300px;
+    height: 900px;
   }
 }
 

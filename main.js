@@ -137,12 +137,12 @@ lunchButton.textContent = lunchVariants[randomIndex]
 
 const getLunchImgPath = (key) => {
   const options = {
-    early: './assets/cooking.png',
-    almost: './assets/almost.png',
-    ready: './assets/ready.png',
-    keep_eating: './assets/keep_eating.png',
-    finished: './assets/finished.png',
-    not_yet: './assets/almost.png'
+    early: './assets/cooking1.jpg',
+    almost: './assets/cooking1.png',
+    ready: './assets/ready1.jpg',
+    keep_eating: './assets/ready1.jpg',
+    finished: './assets/finished1.png',
+    not_yet: './assets/notReady1.png'
   }
 
   return options[key]
@@ -155,25 +155,24 @@ function resetState() {
   const lunchButton = document.getElementById("lunchButton")
   lunchButton.classList.remove('hidden')
   console.log
-  lunchButton.textContent = lunchVariants[randomIndex]
+  lunchButton.textContent = lunchVariants[Math.floor(Math.random() * lunchVariants.length)]
   const divImg = document.getElementById('imgResult')
   divImg.style.display = 'none'
   const canvas = document.getElementById('canvas')
   canvas.classList.add('hidden')
   const textSpam = document.getElementById("textResult")
   textSpam.textContent = ''
-  
 }
 
 const getResult = () => {
-  const currentHour = 12
+  const currentHour = 13
 
   const currentPeriod = (hour) => ({
     early: hour === 10,
     almost: hour === 11,
     ready: hour === 12,
     keep_eating: hour === 13,
-    finished: hour === 14 && hour <= 18,
+    finished: hour => 14 && hour <= 18,
     not_yet: hour >= 18 && hour <= 10
   })
 
@@ -183,27 +182,28 @@ const getResult = () => {
   if (currentPeriod(currentHour).early) {
     imgPath = getLunchImgPath('early')
     backgroundColor = 'red'
-    text = notOkAnswers[randomIndexRejectIndex]
+    text = notOkAnswers[Math.floor(Math.random() * notOkAnswers.length)]
   } else if(currentPeriod(currentHour).almost) {
     imgPath = getLunchImgPath('almost')
     backgroundColor = 'red'
-    text = notOkAnswers[randomIndexRejectIndex]
+    text = Preparando
   } else if(currentPeriod(currentHour).ready) {
     imgPath = getLunchImgPath('ready')
     backgroundColor = 'green'
-    text = okAnswers[randomAnswerIndex]
+    text = okAnswers[Math.floor(Math.random() * okAnswers.length)]
   } else if(currentPeriod(currentHour).keep_eating) {
     imgPath = getLunchImgPath('keep_eating')
     backgroundColor = 'green'
-    text = okAnswers[randomAnswerIndex]
+    text = 'Ainda pod'
   } else if(currentPeriod(currentHour).finished) {
+    console.log('cai aqui')
     imgPath = getLunchImgPath('finished')
     backgroundColor = 'red'
-    text = notOkAnswers[randomIndexRejectIndex]
+    text = 'Não, acabou'
   } else {
     imgPath = getLunchImgPath('not_yet')
     backgroundColor = 'red'
-    text = notOkAnswers[randomIndexRejectIndex]
+    text = notOkAnswers[Math.floor(Math.random() * notOkAnswers.length)]
   }
 
   return { img: imgPath, backgroundColor, text}
