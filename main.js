@@ -165,7 +165,7 @@ function resetState() {
 }
 
 const getResult = () => {
-  const currentHour = 13
+  const currentHour = new Date().getHours()
 
   const currentPeriod = (hour) => ({
     early: hour === 10,
