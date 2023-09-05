@@ -1,4 +1,11 @@
+const lunchVariants = [
+  'Jah pode Al mossar?', 'Pod al Mossar?', 'ao mossar?', 'Mossar?'
+]
+
+const randomIndex = Math.floor(Math.random() * lunchVariants.length);
+
 const lunchButton = document.getElementById("lunchButton")
+lunchButton.textContent = lunchVariants[randomIndex]
 
 const getLunchImgPath = (key) => {
   const options = {
