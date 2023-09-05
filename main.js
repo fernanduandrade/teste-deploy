@@ -29,7 +29,6 @@ const jahPodeAlmossar = () => {
   if (currentPeriod(currentHour).early) {
     imgPath = getLunchImgPath('early')
   } else if(currentPeriod(currentHour).almost) {
-    console.log('cai aqui por')
     imgPath = getLunchImgPath('almost')
   } else if(currentPeriod(currentHour).ready) {
     imgPath = getLunchImgPath('ready')
