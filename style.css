@@ -89,11 +89,38 @@ p, h1, h2, h3, h4, h5, h6 {
   gap: 20px;
 }
 
-.lunch__img {
-  flex: 70%;
+.img_result {
+  gap: 40px;
+  border-radius: 8px;
   width: 400px;
-  height: 450px;
-  border-radius: 4px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spam-result {
+  font-weight: 500;
+  font-size: 40px;
+  color: var(--text-primary-color);
+  overflow-wrap: break-word;
+}
+
+.confetti{
+  position: absolute;
+  max-width: 640px;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.img_result img {
+  width: 80%;
+  height: 70%;
+  animation: fade-in 2s, wiggle 2s ease-in-out 1s forwards;
+  transform-origin: center;
+  border-radius: 8px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -122,6 +149,29 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .lunch__button:active {
+  transform: translateY(-2px);
+}
+
+.reset__button {
+  height: 38px;
+  width: 15%;
+  border-radius: 6px;
+  color: var(--text-primary-color);
+  background-color: var(--primary-color);
+  transition: .2s ease;
+  border: none;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
+
+.reset__button:hover {
+  background-color: #7e22ce;
+  cursor: pointer;
+}
+
+.reset__button:active {
   transform: translateY(-2px);
 }
 
@@ -228,3 +278,48 @@ p, h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+
+@keyframes wiggle {
+  0% {
+      transform: translateX(0);
+  }
+  9% {
+    transform: translateX(-10px) rotate(-45deg);
+  }
+  14% {
+    transform: translateX(10px) rotate(45deg);
+  }
+  19% {
+    transform: translateX(-10px) rotate(-35deg);
+  }
+  25% {
+      transform: translateX(10px) rotate(35deg);
+  }
+  33% {
+      transform: translateX(-10px) rotate(-25deg);
+  }
+  41% {
+    transform: translateX(10px) rotate(25deg);
+  }
+  50% {
+      transform: translateX(-10px) rotate(-15deg);
+  }
+  58% {
+    transform: translateX(10px) rotate(15deg);
+  }
+  64% {
+    transform: translateX(-10px) rotate(-10deg);
+  }
+  75% {
+      transform: translateX(10px) rotate(-10deg);
+  }
+  81% {
+    transform: translateX(-10px) rotate(-5deg);
+  }
+  92% {
+    transform: translateX(10px) rotate(5deg);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
